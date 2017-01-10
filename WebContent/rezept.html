@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+	    <title>Praxis Dr. Graebner, Alzenau</title>
+		<meta name="author" content="www.DrGraebner.de">
+		<meta name="description" content="Praxis Dr. Graebner Facharzt für Allgemeinmedizin in Alzenau">
+		<meta name="keywords" content="Arzt,Praxis,Alzenau,Doktor,Dr,Graebner">
+		<meta name="audience" content="alle">
+		<meta name="page-topic" content="Gesundheit,Arzt">
+		<meta name="robots" content="index, follow">
+		<meta name="expires" content="0">
+	
+	    <!-- Bootstrap -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/drGraebner.css" rel="stylesheet">
+	
+	    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+    
+	<script type="text/javascript">
+	
+	function onLoad()
+	{
+		// Rezept-Bestätigung ausgeben
+		var aufrufURL=new String(document.location.href);
+		var index=aufrufURL.indexOf("?");
+		if(index > 1)
+		{
+			var parameter=aufrufURL.substring(index+1,index+18);
+			if(parameter == "rezeptVersendet")
+			{
+				alert("Ihre Medikamentenbestellung wurde versendet.");
+			}
+		}
+	}
+	
+	/**
+	 * Rezept-Felder prüfen
+	 */
+	function checkRezept()
+	{
+		if (document.formRezept.anrede.value == "")
+		{
+			alert("Bitte Anrede (Frau/Herr) auswählen!");
+			document.formRezept.anrede.focus();
+			return false;
+		}
+		if (document.formRezept.name.value == "")
+		{
+			alert("Bitte Ihren Namen eingeben!");
+			document.formRezept.name.focus();
+			return false;
+		}
+		if (document.formRezept.telefon.value == "" && document.formRezept.email.value == "")
+		{
+			alert("Bitte Ihre Telefonnummer oder EMail-Adresse für evtl. Rückfragen eingeben!");
+			document.formRezept.email.focus();
+			return false;
+		}
+		if (document.formRezept.email.value == "")
+		{
+	
+		}
+		else
+		{
+			if(document.formRezept.email.value.indexOf("@") == -1)
+			{
+				alert("Ihre EMail-Adresse ist ungültig!");
+				document.formRezept.email.focus();
+				return false;
+			}
+			if (document.formRezept.email.value.indexOf(".") == -1)
+			{
+				alert("Ihre EMail-Adresse ist ungültig!");
+				document.formRezept.email.focus();
+				return false;
+			}
+		}
+		if (document.formRezept.text.value == "")
+		{
+			alert("Bitte Medikamente eingeben!");
+			document.formRezept.text.focus();
+			return false;
+		}
+		return true;
+	}
+	
+	</script>
+
+	</head>
+	<body onLoad="onLoad()">
+		<div class="container">
+
+			<div class="row">
+				<img src="images/michelbachSchlossImSchnee.jpg" class="img-responsive" alt="Hintergrundbild fehlt">
+			</div>
+
+			<!-- ------------------------------------------------------------------ -->
+			<!-- NAVIGATION -->
+			<!-- ------------------------------------------------------------------ -->
+
+			<div class="row" style="height:10px;">
+				<p>&nbsp;</p>
+			</div>
+
+			<ul class="nav nav-pills">
+				<li role="presentation"><a href="index.html">Startseite</a></li>
+				<li role="presentation" class="active"><a href="#">Rezept</a></li>
+				<li role="presentation"><a href="notfall.html">Notfälle</a></li>
+				<li role="presentation"><a href="kontakt.html">Kontakt</a></li>
+				<li role="presentation"><a href="impressum.html">Impressum</a></li>
+			</ul>
+
+			<div class="row" style="height:10px;">
+				<p>&nbsp;</p>
+			</div>
+
+			<!-- ------------------------------------------------------------------ -->
+			<!-- HAUPTBLOCK -->
+			<!-- ------------------------------------------------------------------ -->
+
+			<div class="panel panel-danger">
+				<div class="panel-heading panel-title">
+					Bestellung von Medikamenten und Pflege-/Heilmitteln
+				</div>
+				
+				<div class="panel-body">
+					<p>
+					Auf dieser Seite können Sie eine Bestellung von Medikamenten und Pflege-/Heilmitteln
+					an die Praxis Dr. Graebner versenden.
+					Die Bestellung wird geprüft und - falls zulässig und möglich - das Rezept bereitgestellt.
+					Das Rezept kann ausgestellt werden, wenn Ihre Versichertenkarte in diesem Quartal in der Praxis bereits eingelesen wurde.
+					Das Rezept kann in der Praxis am nächsten Arbeitstag zwischen 10:oo und 13:oo Uhr abgeholt werden.
+					</p>
+				</div>
+				
+				<div class="panel-body">
+					<form class="form-horizontal"
+		            	name="formRezept"
+		            	id="formRezept"
+						action="/cgi-bin/formmailer.pl"
+						method="post"
+						enctype="multipart/form-data"
+		                onsubmit="return checkRezept()">
+		
+						<!-- input type="hidden" name="recipient" value="rezept@DrGraebner.de" / -->
+						<input type="hidden" name="recipient" value="richard.kotowski@kotowski-online.de" />
+						<input type="hidden" name="subject"   value="Rezeptbestellung von www.DrGraebner.de" />
+						<input type="hidden" name="redirect"  value="http://www.DrGraebner.de/rezept.html?rezeptVersendet" />
+	
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="anrede">Anrede</label>
+							<div class="col-sm-2">
+								<select class="form-control" id="anrede" name="anrede">
+								<option value=""></option>
+								<option value="Frau">Frau</option>
+								<option value="Herr">Herr</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="vorname">Vorname</label>
+							<div class="col-sm-10">
+								<input class="form-control" id="vorname" name="vorname" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="name">Name</label>
+							<div class="col-sm-10">
+								<input class="form-control" id="name" name="name" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="geburtsdatum">Geburtsdatum</label>
+							<div class="col-sm-3">
+								<input class="form-control" id="geburtsdatum" name="geburtsdatum" type="date">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="strasse">Strasse</label>
+							<div class="col-sm-10">
+								<input class="form-control" placeholder="Strasse und Hausnummer" id="strasse" name="strasse" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="plz">PLZ, Ort</label>
+							<div class="col-sm-2">
+								<input class="form-control" placeholder="PLZ" id="plz" name="plz" type="text">
+							</div>
+							<div class="col-sm-8">
+								<input class="form-control" placeholder="Ort" id="ort" name="ort" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="email" data-error="wrong">EMail</label>
+							<div class="col-sm-10">
+								<input class="form-control validate" placeholder="Ihre EMail" id="email" name="email" type="email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="telefon">Telefon(e)</label>
+							<div class="col-sm-10">
+								<input class="form-control" id="telefon" name="telefon" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="text">Medikamente<br/>Pflege-/Heimittel<br/>Bemerkungen</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" rows="5" id="text" name="text"></textarea>
+							</div>
+						</div>
+	
+						<div class="form-group">        
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">Bestellung versenden</button>
+							</div>
+						</div>
+					
+					</form>
+				</div>
+			</div>
+
+			<!-- ------------------------------------------------------------------ -->
+			<!-- SPRECHZEITEN,... -->
+			<!-- ------------------------------------------------------------------ -->
+			
+			<div class="row text-info">
+				
+				<!-- Sprechzeiten -->
+				<div class="col-sm-7">
+					<div class="panel panel-default">
+						<div class="panel-heading panel-info">
+							Sprechzeiten
+						</div>
+						<div class="panel-body">
+							<table>
+								<tr>
+									<td width="90">Montag</td>
+									<td width="100">&nbsp;&nbsp;9:00-11:30</td>
+									<td width="100">16:00-18:00</td>
+								</tr>
+								<tr>
+									<td width="90">Dienstag</td>
+									<td width="100">&nbsp;&nbsp;9:00-11:30</td>
+									<td width="100">&nbsp;</td>
+								</tr>
+								<tr>
+									<td width="90">Mittwoch</td>
+									<td width="100">&nbsp;&nbsp;9:00-11:30</td>
+									<td width="100">&nbsp;</td>
+								</tr>
+								<tr>
+									<td width="90">Donnerstag</td>
+									<td width="100">&nbsp;&nbsp;9:00-11:30</td>
+									<td width="100">16:00-18:00</td>
+								</tr>
+								<tr>
+									<td width="90">Freitag</td>
+									<td width="100">&nbsp;&nbsp;9:00-12:00</td>
+									<td width="100">&nbsp;</td>
+								</tr>
+							</table>
+							<br/>
+							Sonstige Sprechzeiten nach vorheriger Vereinbarung
+							<table>
+								<tr>
+									<td width="90">Dienstag</td>
+									<td width="100">16:00-17:00</td>
+									<td width="100">&nbsp;</td>
+								</tr>
+								<tr>
+									<td width="90">Samstag</td>
+									<td width="100">10:30-12:00</td>
+									<td width="100">&nbsp;</td>
+								</tr>
+							</table>
+						</div>
+						</div>
+					</div>
+					
+					<!-- Kontakt -->
+					<div class="col-sm-5">
+						<div class="panel panel-default">
+							<div class="panel-heading panel-info">
+								Kontakt
+							</div>
+							<div class="panel-body">
+								<p>
+									Dr. med. Erich Graebner<br/>
+									Facharzt für Allgemeinmedizin<br>
+								</p>
+								<p>
+									Wasserloser Straße 37<br/>
+									63755 Alzenau
+								</p>
+								<p>
+								<table>
+									<tr>
+										<td>Telefon&nbsp;</td>
+										<td>0 6023 8485</td>
+									</tr>
+									<tr>
+										<td>Fax</td>
+										<td>0 6023 31576</td>
+									</tr>
+									<tr>
+										<td>Handy</td>
+										<td>0 170 8179014</td>
+									</tr>
+									<tr>
+										<td>EMail</td>
+										<td>Praxis@DrGraebner.de</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					
+			</div>
+			
+			<!-- ------------------------------------------------------------------ -->
+			<!-- COPY RIGHT -->
+			<!-- ------------------------------------------------------------------ -->
+
+			<div class="row">
+				<p class="fuss">
+					Copyright &copy; 2017 DrGraebner.de
+				</p>
+			</div>
+
+		</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+  </body>
+</html>
