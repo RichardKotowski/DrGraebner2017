@@ -14,9 +14,16 @@ video {
 
 .container {
 	.center-block();
-	min-width: 375px;
+	min-width: 320px;
 	max-width: 900px;
 	background-color: #F0F0F0;
+}
+
+.panel-heading {
+	text-transform: uppercase;
+}
+.panel-title {
+  font-size: 1em;
 }
 
 .kopf {
@@ -25,19 +32,11 @@ video {
 }
 .kopf>p {
 	position: relative;
-	top: 65%;
+	top: 40%;
 	padding-left: 15px;
 	color: red;
-	/* font-size: 1,5em; soehe @media */
-	text-shadow: 0.10em 0.10em 0.20em black;
-	line-height: 100%;
-}
-
-.panel-heading {
-	text-transform: uppercase;
-}
-.panel-title {
-  font-size: 1em;
+	font-size: 1.75em;
+	text-shadow: 0.25em 0.2em 0.5em black;
 }
 
 .fuss {
@@ -78,8 +77,10 @@ video {
 /* MEDIA SCREEN ------------------------------------------------------ */
 
 @media screen and (max-width:480px){
-.kopf>p {
-	font-size: 2.00em;
+.kopf {
+	/*top: 60px;*/
+	font-size: 1.5em;
+	text-shadow: 0.25em 0.25em 0.25em black;
 }
 .galleria {
 	min-width: 300px;
@@ -88,8 +89,10 @@ video {
 }
 
 @media screen and (min-width:481px) and (max-width:767px){
-.kopf>p {
-	font-size: 2.25em;
+.kopf {
+	/*top: 100px;*/
+	font-size: 2em;
+	text-shadow: 0.25em 0.25em 0.25em black;
 }
 .galleria {
 	min-width: 400px;
@@ -98,8 +101,10 @@ video {
 }
 
 @media screen and (min-width:768px) and (max-width:991px){
-.kopf>p {
-	font-size: 2.50em;
+.kopf {
+	/*top: 150px;*/
+	font-size: 2.25em;
+	text-shadow: 0.3em 0.25em 0.25em black;
 }
 .galleria {
 	min-width: 600px;
@@ -112,8 +117,10 @@ video {
 }
 
 @media screen and (min-width:992px) and (max-width:1199px){
-.kopf>p {
-	font-size: 2.75em;
+.kopf {
+	/*top: 180px;*/
+	font-size: 2.5em;
+	text-shadow: 0.4em 0.25em 0.25em black;
 }
 .galleria {
 	min-width: 600px;
@@ -130,8 +137,10 @@ video {
 }
 
 @media screen and (min-width: 1200px){
-.kopf>p {
-	font-size: 3.00em;
+.kopf {
+	/*top: 180px;*/
+	font-size: 3em;
+	text-shadow: 0.5em 0.25em 0.25em black;
 }
 .galleria {
 	min-width: 600px;

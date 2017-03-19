@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Praxis Dr. Graebner Facharzt für Allgemeinmedizin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Language" content="de">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="author" content="www.DrGraebner.de">
+<meta name="description" content="Praxis Dr. Graebner Facharzt für Allgemeinmedizin in Alzenau">
+<meta name="keywords" content="Doktor,Graebner,Alzenau,Alzenau Doktor Graebner,Doktor Graebner Alzenau">
+<meta name="audience" content="alle">
+<meta name="page-topic" content="Gesundheit,Arzt">
+<meta name="robots" content="index, follow">
+<meta name="expires" content="0">
+
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+
+<script type="text/javascript">
+
+function onLoad()
+{
+	// EMail Versand bestätigen
+	var aufrufURL=new String(document.location.href);
+	var index=aufrufURL.indexOf("?");
+	if(index > 1)
+	{
+		var parameter=aufrufURL.substring(index+1,index+18);
+		if(parameter == "emailVersendet")
+		{
+			alert("Ihre EMail wurde versendet.");
+		}
+	}
+}
+
+/**
+ * EMail-Felder prüfen
+ */
+function checkKontakt()
+{
+	if (document.formKontakt.anrede.value == "")
+	{
+		alert("Bitte Anrede (Frau/Herr) auswählen!");
+		document.formKontakt.anrede.focus();
+		return false;
+	}
+	if (document.formKontakt.name.value == "")
+	{
+		alert("Bitte Ihren Namen eingeben!");
+		document.formKontakt.name.focus();
+		return false;
+	}
+	if (document.formKontakt.telefon.value == "" && document.formKontakt.email.value == "")
+	{
+		alert("Bitte Ihre Telefonnummer oder EMail-Adresse für evtl. Rückfragen eingeben!");
+		document.formKontakt.email.focus();
+		return false;
+	}
+	if (document.formKontakt.email.value == "")
+	{
+
+	}
+	else
+	{
+		if(document.formKontakt.email.value.indexOf("@") == -1)
+		{
+			alert("Ihre EMail-Adresse ist ungültig!");
+			document.formKontakt.email.focus();
+			return false;
+		}
+		if (document.formKontakt.email.value.indexOf(".") == -1)
+		{
+			alert("Ihre EMail-Adresse ist ungültig!");
+			document.formKontakt.email.focus();
+			return false;
+		}
+	}
+	if (document.formKontakt.text.value == "")
+	{
+		alert("Bitte Text eingeben!");
+		document.formKontakt.text.focus();
+		return false;
+	}
+	return true;
+}
+
+</script>
+</head>
+
+<body onLoad="onLoad()">
+
+<div class="grundflaeche">
+
+	<div class="header" style="background-image: url(images/alzenauWeinberg1a.jpg);">
+		<div class="menu">
+			<a class="buttonAktiv" href="kontakt.html">Kontakt</a>
+			<a class="button" href="notfall.html">Notfälle</a>
+			<a class="button" href="rezept.html">Rezept</a>
+			<a class="button" href="index.html">Startseite</a>
+		</div>
+	</div>
+
+	<div class="textflaeche" style="height:580px;">
+
+		<!-- Inhalt Linke Seite -->
+
+		<div class="textflaecheLinks">
+
+			<div class="praxisAnschrift">
+				<div class="ueberschrift2">
+					Kontakt
+				</div>
+				<p>
+					Dr. med. Erich Graebner<br/>
+					Facharzt für Allgemeinmedizin<br>
+				</p>
+				<p>
+					Wasserloser Straße 37<br/>
+					63755 Alzenau
+				</p>
+				<p>
+				<table>
+					<tr>
+						<td width="60">Telefon</td>
+						<td width="*">0 (6023) 8485</td>
+					</tr>
+					<tr>
+						<td>Fax</td>
+						<td>0 (6023) 31576</td>
+					</tr>
+					<tr>
+						<td>Handy</td>
+						<td>0 170 8179014</td>
+					</tr>
+					<tr>
+						<td>EMail</td>
+						<td>Praxis@DrGraebner.de</td>
+					</tr>
+				</table>
+				<p></p>
+			</div>
+
+			<div class="praxisAnschrift">
+				<div class="ueberschrift2">
+					Unser Team
+				</div>
+				<p>
+					Dr. med. Erich Georg Graebner<br/>
+					Fr. Gertrud Graebner<br/>
+					Fr. Birgit Berwanger<br/>
+					Fr. Martina Schmitt
+				</p>
+			</div>
+
+		</div>
+
+		<!-- Inhalt Rechte Seite -->
+
+		<div class="textflaecheRechts">
+
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>Sie erreichen die Praxis Dr. med. Erich Georg Graebner unter den links angegebenen Telefonnummern.</p>
+			<p>Sie können auch eine EMail an Praxis@DrGraebner.de senden.
+			Füllen Sie zumindest die farblich unterlegten Felder aus
+			und betätigen Sie den Button 'EMail versenden'.
+			</p>
+			<br/>
+
+			<form
+                name="formKontakt"
+                id="formKontakt"
+				action="/cgi-bin/formmailer.pl"
+				method="post"
+				enctype="multipart/form-data"
+                onsubmit="return checkKontakt()">
+
+				<input type="hidden" name="recipient" value="kontakt@DrGraebner.de" />
+				<input type="hidden" name="subject" value="Kontakt-Mail von www.DrGraebner.de" />
+				<input type="hidden" name="redirect" value="http://www.DrGraebner.de/kontakt.html?emailVersendet" />
+
+			<table width="100%" border="0">
+				<tr>
+					<td width="150">Anrede</td>
+					<td width="*">
+						<select name="anrede" style="background-color:#FFF0D5">
+							<option value=""></option>
+							<option value="Frau">Frau</option>
+							<option value="Herr">Herr</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Name, Vorname(n)</td>
+					<td>
+						<input name="name" type="text" size="30" maxsize="50" style="background-color:#FFF0D5">
+						<input name="vorname" type="text" size="30" maxsize="50" style="background-color:#FFF0D5">
+					</td>
+				</tr>
+				<tr>
+					<td>Strasse, Hausnummer</td>
+					<td>
+						<input name="strasse" type="text" size="50">
+					</td>
+				</tr>
+				<tr>
+					<td>PLZ, Ort</td>
+					<td>
+						<input name="plz" type="text" size="8">
+						<input name="ort" type="text" size="50">
+					</td>
+				</tr>
+				<tr>
+					<td>Ihre EMail</td>
+					<td>
+						<input name="email" type="text" size="50" maxlength="256" style="background-color:#FFF0D5">
+					</td>
+				</tr>
+				<tr>
+					<td>Telefon(e)</td>
+					<td>
+						<input name="telefon" type="text" size="50" style="background-color:#FFF0D5">
+					</td>
+				</tr>
+				<tr>
+					<td>Text</td>
+					<td>
+						<textarea name="text" cols="50" rows="7" style="background-color:#FFF0D5"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit">EMail versenden</button>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div>
+	</div>
+
+	<div class="fuss">
+		<p>
+		Copyright &copy; 2016 DrGraebner.de
+		&nbsp;&bull;&nbsp;
+		<a href="impressum.html">Impressum</a>
+		</p>
+	</div>
+</div>
+</body>
+</html>
