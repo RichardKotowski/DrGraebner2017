@@ -141,8 +141,12 @@
 					<p>
 					Auf dieser Seite können Sie eine Bestellung von Medikamenten und Pflege-/Heilmitteln
 					an die Praxis Dr. Graebner versenden.
+					</p>
+					<p>
 					Die Bestellung wird geprüft und - falls zulässig und möglich - das Rezept bereitgestellt.
 					Das Rezept kann ausgestellt werden, wenn Ihre Versichertenkarte in diesem Quartal in der Praxis bereits eingelesen wurde.
+					</p>
+					<p>
 					Das Rezept kann in der Praxis am nächsten Arbeitstag zwischen 10:oo und 13:oo Uhr abgeholt werden.
 					</p>
 				</div>
@@ -164,7 +168,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="anrede">Anrede</label>
 							<div class="col-sm-2">
-								<select class="form-control" id="anrede" name="anrede">
+								<select class="form-control inputPflicht" id="anrede" name="anrede">
 								<option value=""></option>
 								<option value="Frau">Frau</option>
 								<option value="Herr">Herr</option>
@@ -174,13 +178,13 @@
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="vorname">Vorname</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="vorname" name="vorname" type="text">
+								<input class="form-control inputPflicht" id="vorname" name="vorname" type="text">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="name">Name</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="name" name="name" type="text">
+								<input class="form-control inputPflicht" id="name" name="name" type="text">
 							</div>
 						</div>
 						<div class="form-group">
@@ -207,19 +211,19 @@
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="email" data-error="wrong">EMail</label>
 							<div class="col-sm-10">
-								<input class="form-control validate" placeholder="Ihre EMail" id="email" name="email" type="email">
+								<input class="form-control validate inputPflicht" placeholder="Ihre EMail-Adresse" id="email" name="email" type="email">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="telefon">Telefon(e)</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="telefon" name="telefon" type="text">
+								<input class="form-control inputPflicht" id="telefon" name="telefon" type="text">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="text">Medikamente<br/>Pflege-/Heimittel<br/>Bemerkungen</label>
 							<div class="col-sm-10">
-								<textarea class="form-control" rows="5" id="text" name="text"></textarea>
+								<textarea class="form-control inputPflicht" rows="5" id="text" name="text"></textarea>
 							</div>
 						</div>
 	
@@ -240,7 +244,7 @@
 			<div class="row text-info">
 				
 				<!-- Sprechzeiten -->
-				<div class="col-sm-7">
+				<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading panel-info">
 							Sprechzeiten
@@ -278,7 +282,7 @@
 				</div>
 					
 				<!-- Kontakt -->
-				<div class="col-sm-5">
+				<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading panel-info">
 							Kontakt

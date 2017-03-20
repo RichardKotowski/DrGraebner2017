@@ -25,7 +25,7 @@ video {
 }
 .kopf>p {
 	position: relative;
-	top: 65%;
+	top: 60%;
 	padding-left: 15px;
 	color: red;
 	/* font-size: 1,5em; soehe @media */
@@ -66,6 +66,10 @@ video {
 
 .terminAbgelaufen {
 	display: none;
+}
+
+.inputPflicht {
+	background-color: beige;
 }
 
 .mitZugriff {
